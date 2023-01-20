@@ -1,5 +1,5 @@
 # Password-Provider-5000
-Welcome to the Password Generator 5000! My submission for the Password Generator - Module 3 Challenge!
+Welcome to the Password Provider 5000! My submission for the Password Generator - Module 3 Challenge!
 # Challenge 03 - Password-Provider-5000
 January 19th, 2023
 
