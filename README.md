@@ -22,7 +22,7 @@ The Module 3 Challenge was to build a random password generator. The user clicks
 # Screenshot
 Here are various screenshots of my finished site page.
 ### view of first
-![password generator first question](./assets/images/Q1.png)
+![password generator first question](./assets/images/q1.png)
 ### Final view of generated password
 ![Generated password](./assets/images/final.png)
 ### Mobile View
