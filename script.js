@@ -28,34 +28,65 @@ function writePassword() {
 
 }
 
-// Add event listener to generate button 
-// When user clicks button, it will generate writePassword function
-generateBtn.addEventListener("click", writePassword); 
 
-function generatePassword() {
-    // Ask four user Input
-    passwordLength = window.prompt("Please choose a password length between 8 and 128 total characters");
-    console.log("Password length " + passwordLength);
+
+function generatePassword(){
+    var passwordReturn = [];
+    var userLength = window.prompt("How long would you like to make your password?");
+    
   
-    if(!passwordLength) {
-      alert("Required ");
+    if (userLength > 8 && userLength < 128) {
+    var useNumbers = confirm("Include numbers in your password?");
+    var useUpperCase = confirm("Include uppercase letters in your password?");
+    var useLowerCase = confirm("Include lowercase letters in your password?");
+    var useSpecial = confirm("Include special character in your password?");
+     
+    if (useNumbers || useUpperCase || useLowerCase || useSpecial){
+      var allPossibleCharacters = [];
   
-    } else if (passwordLength < 8 || passwordLength > 128) {
-      passwordLength = prompt("Please choose a password length BETWEEN 8 and 128 total characters");
-      console.log("Password length " + passwordLength);
+     if (useNumbers){
+      allPossibleCharacters = allPossibleCharacters.concat(numberValues);
+     }
   
-    } else { 
-      confirmLower = confirm("Lowercase characters in your password? Click YES to include or CANCEL to not include");
-      console.log("Lower case " + confirmLower);
-      confirmUpper = confirm("Uppercase characters in your password? Click YES to include or CANCEL to not include");
-      console.log("Upper case " + confirmUpper);
-      confirmNumber = confirm("Numbers in your password? Click YES to include or CANCEL to not include");
-      console.log("Number " + confirmNumber);
-      confirmSpecial = confirm("Special characters in your password? Click YES to include or CANCEL to not include");
-      console.log("Special Character " + confirmSpecial);
+     if (useUpperCase) {
+      allPossibleCharacters = allPossibleCharacters.concat(uppercaseValues);
+     }
+
+     if (useLowerCase) {
+        allPossibleCharacters = allPossibleCharacters.concat(lowercaseValue);
+       }
   
+     if (useSpecial) {
+      allPossibleCharacters = allPossibleCharacters.concat(specialValues);
+     }
+  
+     for (var i=0; i< userLength; i++){
+      var randomIndex = Math.floor(Math.random() * allPossibleCharacters.length);
+  
+      passwordReturn.push(allPossibleCharacters[randomIndex]);
+     }
+  
+     return passwordReturn.join("");
+     } else {
+       return "Please select at least one possible set of characters";
+     }
+     } else {
+        return "Please make length between 8 and 128 characters";
+      }
     };
-
-}
-
-
+  
+  
+  
+  
+  // Write password to the #password input
+  function writePassword() {
+    var password = generatePassword();
+    var passwordText = document.querySelector("#password");
+  
+    passwordText.value = password;
+  
+  }
+  
+  // Add event listener to generate button
+  generateBtn.addEventListener("click", writePassword);
+  
