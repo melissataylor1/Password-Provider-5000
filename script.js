@@ -17,7 +17,7 @@ function generatePassword(){
     var passwordLength = parseInt(window.prompt("Please choose a password length between 8 and 128 total characters"));
 
     //If password length meets criteria, prompt all other questions
-    if (passwordLength > 8 && passwordLength < 128) {
+    if (passwordLength > 7 && passwordLength < 129) {
         var useNumbers = confirm("Include numbers in your password?");
         var useUppercase = confirm("Include uppercase letters in your password?");
         var useLowercase = confirm("Include lowercase letters in your password?");
